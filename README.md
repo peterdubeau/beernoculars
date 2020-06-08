@@ -72,14 +72,16 @@ An application that gives the user a list of beers they may like based on a few 
 #### MVP 
 
 - Multiple drop down menus by search category (ABV & Style)
-- Display Beer Image along with key information of 10 beers
-- Clickable like to google search or breweries Website
+- Display Beer Image along with key information of up to 8 beers
+- Show random beer button (Beer Roulette!)
+- Media query for dynamic viewing
+- Clickable link to google search or breweries Website
 
 #### PostMVP  
 
 - Text search function. 
 - additional search categories (SRM, Location, hops, yeast)
-- Add a "show 10 more" button for results larger than 10.
+- Add a "show 8 more" or next page button for results larger than 8.
 
 ## Project Schedule
 
@@ -89,28 +91,30 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|June 8| Project Prompt & WireFrame| Incomplete
-|June 9| Priority Matrix / Timeframes | Incomplete
-|June 10| Core Application Structure (HTML, JS & basic CSS, etc.) | Incomplete
+|June 8| Project Prompt, WireFrame, Priority Matrix | Incomplete
+|June 9| Core Application Structure (HTML, JavaScript & basic CSS, etc.)| Incomplete
+|June 10| JavaScript and API  | Incomplete
 |June 11| Initial Clickable Model  | Incomplete
 |June 12| MVP & additional CSS styling | Incomplete
 |June 15| Present | Incomplete
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+[Priority-Matrix](https://app.conceptboard.com/board/aueq-65r2-izir-3ftc-qfpt)
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Proposal | H | | 2hrs | 2hrs | 2hrs |
+| Building base HTML & CSS | H | 3hrs | - |
+| Adding Drop down menus | M | 4hrs|  | - |
+| Working with API | H | 6hrs| | - |
+| Random Button | L | 3hrs | - |
+| Fine Tuning CSS | M | 6hrs | - |
+| Media Queries | L | 4hrs | - |
+| Total | H | 29hrs| 2hr | 2hrs |
 
 ## Code Snippet
 
