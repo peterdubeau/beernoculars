@@ -88,7 +88,7 @@ An application that gives the user a list of beers they may like based on a few 
 |  Day | Deliverable | Status
 |---|---| ---|
 |June 8| Project Prompt, WireFrame, Priority Matrix | Incomplete
-|June 9| Core Application Structure (HTML, JavaScript & basic CSS, etc.)| Incomplete
+|June 9| Core Application Structure (HTML, JavaScript, basic CSS & initial API setup)| Incomplete
 |June 10| JavaScript and API  | Incomplete
 |June 11| Initial Clickable Model  | Incomplete
 |June 12| MVP & additional CSS styling | Incomplete
