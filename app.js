@@ -3,10 +3,10 @@ const getOption = async () => {
   try {
     // accessing the BreweryDB API with an endpoint 
     // of "beers"
-    const url = "http://api.brewerydb.com/v2/styles/?key=f5be82be5b9ee3151bbe291b9f9596fa"
+    const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
     const res = await axios.get(url)
     styleList = (res.data.data)
-    
+    // console.log(styleList)
  
     const selectStyle = document.querySelector('#select-style')    // Logging the beers to make sure we have access
     const selectABV = document.querySelector("#select-abv")         // console.log(Object.values(styleList))
@@ -14,13 +14,20 @@ const getOption = async () => {
     // Turning the list of beers into an array of objects
     // and adding to the drop down
     // styleList.forEach((style) => {
-      const option = document.createElement('option')
+    
+    let beerInfo = []
+    
     for (let i = 0; i < styleList.length; i++) {
-      option.value = `${styleList.name}`
-      option.text = `${styleList.name}`
+      beerInfo = styleList[i].style
+      const option = document.createElement('option')
+      option.value = `${beerInfo.shortName}`
+      option.text = `${beerInfo.shortName}`
       selectStyle.append(option)
+      console.log(beerInfo.name)
     }
-        
+    
+   
+   
       
     // })
     // 
