@@ -103,13 +103,13 @@ An application that gives the user a list of beers they may like based on a few 
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Proposal | H | | 2hrs | 2hrs | 2hrs |
-| Building base HTML & CSS | H | 3hrs | - |
-| Adding Drop down menus | M | 4hrs|  | - |
-| Working with API | H | 6hrs| | - |
-| Random Button | L | 3hrs | - |
-| Fine Tuning CSS | M | 6hrs | - |
-| Media Queries | L | 4hrs | - |
+| Proposal | H | 2hrs | 2hrs | 2hrs | 2hrs |
+| Building base HTML & CSS | H | 3hrs | - | - |
+| Adding Drop down menus | M | 4hrs| - | - |
+| Working with API | H | 6hrs| | - | - |
+| Random Button | L | 3hrs | - | - |
+| Fine Tuning CSS | M | 6hrs | - | - |
+| Media Queries | L | 4hrs | - | -|
 | Total | H | 29hrs| 2hr | 2hrs |
 
 ## Code Snippet
