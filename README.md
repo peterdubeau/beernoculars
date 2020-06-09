@@ -1,6 +1,6 @@
 # Project Overview
 
-# Beernoculars
+## Beernoculars
 
 ## Project Description
 
@@ -76,7 +76,6 @@ An application that gives the user a list of beers they may like based on a few 
 - Multiple drop down menus by search category (ABV & Style)
 - Display Beer Image along with key information of up to 8 beers
 - Show random beer button (Beer Roulette!)
-- Clickable link to google search or breweries Website
 
 #### PostMVP  
 
@@ -84,6 +83,7 @@ An application that gives the user a list of beers they may like based on a few 
 - additional search categories (SRM, Location, hops, yeast)
 - Media query for dynamic viewing
 - Add a "show 8 more" or next page button for results larger than 8.
+- Clickable link to google search or breweries Website
 
 ## Project Schedule
 
@@ -106,13 +106,14 @@ An application that gives the user a list of beers they may like based on a few 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Proposal | H | 2hrs | 2hrs | 2hrs | 2hrs |
-| Building base HTML & CSS | H | 3hrs | - | - |
-| Adding Drop down menus | M | 4hrs| - | - |
-| Working with API | H | 6hrs| | - | - |
+| Building base HTML & CSS | H | 4hrs | - | - |
+| Adding Drop down menus | M | 4.5hrs| - | - |
+| Working with API | H | 4.5hrs| | - | - |
+| Rendering API to DOM | H | 5hrs| | - | - |
 | Random Button | L | 3hrs | - | - |
 | Fine Tuning CSS | M | 6hrs | - | - |
 | Media Queries | L | 4hrs | - | -|
-| Total | H | 29hrs| 2hr | 2hrs |
+| Total | H | 35hrs| 2hr | 2hrs |
 
 ## Code Snippet
 
