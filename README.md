@@ -4,7 +4,7 @@
 
 ## Project Description
 
-An application that gives the user a list of beers they may like based on a few search criteria (style, ABV, SRM, region, ect.) The page will then display up to 10 beers that match the users request. The results will include: An image of the beer or its logo, a brief description and some additional information as selected in the dropdown menus. 
+An application that gives the user a list of beers they may like based on a few search criteria (style, ABV, ect.) The page will then display up to 8 beers that match the users request. The results will include: An image of the beer or its logo, a brief description and some additional information as selected in the dropdown menus. 
 
 ## API and Data Sample
 
@@ -84,10 +84,6 @@ An application that gives the user a list of beers they may like based on a few 
 - Add a "show 8 more" or next page button for results larger than 8.
 
 ## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
