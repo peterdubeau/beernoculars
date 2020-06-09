@@ -3,16 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <script defer src='./app.js'></script>
+  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
   <title>Welcome to Beernoculars!</title>
 </head>
 <body>
-  <h1>WHO WANTS TO DRINK SOME BEER?</h1>
-  <form ><select name="beer-style" id="select-style"></select></form>
-  <form ><select name="beer-abv" id="select-abc"></select></form>
-  
-  <div id="append-beer"></div>
+  <header>
+    <h1>WELCOME TO BEERNOCULARS</h1>
+    <h3>What kind of beer do you like?</h3>
+      <div class="options">
+      <div class="drop-downs">
+    <form ><select name="beer-style" id="select-style"></select></form>
+    <form ><select name="beer-abv" id="select-abv"></select></form>
+      </div>
+      <div>
+    <button class="buttons">Show me some Brews!</button>
+    <button class="buttons">Beer Roulette!!</button>
+      </div>
+    </div>
+  </header>
+  <div id="append-beer">
+
+  </div>
   
 </body>
 </html>
