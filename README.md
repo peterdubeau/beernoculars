@@ -1,6 +1,6 @@
 # Project Overview
 
-# Beernoculars
+## Beernoculars
 
 ## Project Description
 
