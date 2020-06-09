@@ -69,6 +69,8 @@ An application that gives the user a list of beers they may like based on a few 
 
 [Wireframe Layout](https://wireframe.cc/pro/pp/54f2e6a19349492)
 
+## MVP/Post MVP
+
 #### MVP 
 
 - Multiple drop down menus by search category (ABV & Style)
