@@ -74,13 +74,13 @@ An application that gives the user a list of beers they may like based on a few 
 - Multiple drop down menus by search category (ABV & Style)
 - Display Beer Image along with key information of up to 8 beers
 - Show random beer button (Beer Roulette!)
-- Media query for dynamic viewing
 - Clickable link to google search or breweries Website
 
 #### PostMVP  
 
 - Text search function. 
 - additional search categories (SRM, Location, hops, yeast)
+- Media query for dynamic viewing
 - Add a "show 8 more" or next page button for results larger than 8.
 
 ## Project Schedule
