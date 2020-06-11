@@ -90,8 +90,8 @@ An application that gives the user a list of beers they may like based on a few 
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|June 8| Project Prompt, WireFrame, Priority Matrix | Incomplete
-|June 9| Core Application Structure (HTML, JavaScript, basic CSS & initial API setup)| Incomplete
+|June 8| Project Prompt, WireFrame, Priority Matrix | Complete
+|June 9| Core Application Structure (HTML, JavaScript, basic CSS & initial API setup)| Complete
 |June 10| JavaScript and API  | Incomplete
 |June 11| Initial Clickable Model  | Incomplete
 |June 12| MVP & additional CSS styling | Incomplete
@@ -109,7 +109,7 @@ An application that gives the user a list of beers they may like based on a few 
 | Proposal | H | 2hrs | 2hrs | 2hrs | 2hrs |
 | Building base HTML & CSS | H | 4hrs | 3hrs | - |
 | Adding Drop down menus | M | 4.5hrs| 4hrs | - |
-| Working with API | H | 4.5hrs| | 3hrs | - |
+| Working with API | H | 4.5hrs| | 5hrs | - |
 | Rendering API to DOM | H | 5hrs| | 2hrs | - |
 | Random Button | L | 3hrs | - | - |
 | Fine Tuning CSS | M | 6hrs | - | - |

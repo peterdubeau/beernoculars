@@ -6,7 +6,7 @@ const getOption = async () => {
     const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
     const res = await axios.get(url)
     styleList = (res.data.data)
-    console.log(styleList)
+    // console.log(styleList)
     // console.log(res)
 
     const selectStyle = document.querySelector('#select-style')    // Logging the beers to make sure we have access
@@ -50,6 +50,9 @@ async function beerStyle(e) {
   const res = await axios.get(url)
   styleList = (res.data.data)
 
+
+  // Filters out any beers that don't have style.
+  // then returns beers based on the users choices. 
   e.preventDefault()
   const getBeer = document.querySelector('#select-style')
   const getABV = document.querySelector('#select-abv')
@@ -59,12 +62,33 @@ async function beerStyle(e) {
   let filteredList = styleList.filter(j => {
     return "style" in j
   }).filter(i => {
-    return i.style.category.id === selectValue
+    return i.style.category.id === selectValue && i.abv <= selectABV
   })
-  console.log(filteredList)
+  
+  const createList = document.createElement('beer-list')
+    filteredList.forEach((info) => {
+// console.log(info)
+      createList.innerHTML += `
+    <p>${info.name}</p>
+    <p>Style: ${info.style.shortName}</p>
+    <p>ABV: ${info.abv}%</p>`
+    })
+  document.querySelector("#append-beer").append(createList)
+  // console.log(filteredList)
+  // function beerList(filteredList) {
+  //   const beerList = document.querySelector("#append-beer")
+  //   const displayBeer = document.createElement("beer-choice")
+  //   document.querySelector('append-beer').append(filteredList)
+  // }
+
 }
 
-// i.style.abvMin >= selectABV 
+ 
+
+
+
+
+
 
 async function getImage(image) {
   try {
