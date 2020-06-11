@@ -4,7 +4,7 @@
 
 ## Project Description
 
-An application that gives the user a list of beers they may like based on a few search criteria (style, ABV, ect.) The page will then display up to 8 beers that match the users request. The results will include: An image of the beer or its logo, a brief description and some additional information as selected in the dropdown menus. 
+An application that gives the user a list of beers they may like based on a few search criteria (style, ABV, ect.) The page will then display up to 4 beers that match the users request. The results will include: An image of the beer or its logo, a brief description and some additional information as selected in the dropdown menus. 
 
 ## API and Data Sample
 
@@ -74,7 +74,7 @@ An application that gives the user a list of beers they may like based on a few 
 #### MVP 
 
 - Multiple drop down menus by search category (ABV & Style)
-- Display Beer Image along with key information of up to 8 beers
+- Display Beer Image along with key information of up to 4 beers
 - Show random beer button (Beer Roulette!)
 
 #### PostMVP  
@@ -82,8 +82,9 @@ An application that gives the user a list of beers they may like based on a few 
 - Text search function. 
 - additional search categories (SRM, Location, hops, yeast)
 - Media query for dynamic viewing
-- Add a "show 8 more" or next page button for results larger than 8.
-- Clickable link to google search or breweries Website
+- Add a "show 4 more" or next page button for results larger than 4.
+- If there are less than 4 results, display additional beers of chosen style and note that they do not match selected ABV 
+- Clickable link to google search or breweries Website 
 
 ## Project Schedule
 
@@ -123,4 +124,6 @@ Coming soon to a proposal near you
 ```
 
 ## Change Log
-
+- Minor changes due to restricted data in API (6/11/20)
+    - Updated MVP. Will only display 4 beers now
+    - Updated post MVP to display additional beers if no ABV requirements met
