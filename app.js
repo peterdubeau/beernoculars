@@ -8,10 +8,20 @@ const getOption = async () => {
     styleList = (res.data.data)
     // console.log(styleList)
     // console.log(res)
+    const defaultImg = document.querySelector(".default")
+    console.log(defaultImg)
+    // BAD ATTEMPT AT SETTING DEFAULT IMAGE
+    // const getLabel = (res.data.data)
+    // getLabel.forEach((info) => {
+    //   if (info.labels === null) {
+    //     return placeHolder
+    //   } else { 
+    //     return info
+    //   }
+    // })
 
-    const selectStyle = document.querySelector('#select-style')    // Logging the beers to make sure we have access
-
-
+    // Logging the beers to make sure we have access
+    const selectStyle = document.querySelector('#select-style') 
     // This block of code populates the Style Drop Down with "glass" value from API
     // I used glass value because it was much closer to an accurate style description.
     for (let i = 0; i < styleList.length; i++) {
@@ -20,9 +30,8 @@ const getOption = async () => {
       option.value = `${beerInfo.category.id}`
       option.text = `${beerInfo.shortName}`
       selectStyle.append(option)
-      // console.log(styleList)
+
     }
-    console.log(beerInfo.shortName)
   } catch (error) {
     console.log(`THERE WAS AN ERROR: ${error}`)
   }
@@ -92,12 +101,13 @@ async function customBeers(e) {
 }
 
 
+
 // same as custom beers, but randomly generates the selection
 const showRandomBeer = document.querySelector("#random-beer")
-showRandomBeer.addEventListener('click', randomBeers)
+showRandomBeer.addEventListener('click', roulette)
 
 
-async function randomBeers(e) {
+async function roulette(e) {
   const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
   const res = await axios.get(url)
   styleList = (res.data.data)
@@ -112,18 +122,19 @@ async function randomBeers(e) {
   const createRandomList = document.createElement('beer-list')
   clearList()
   let listBeers = randomize(filteredList)
-   let randomBeers = getImgUrl(listBeers)
-  
-  randomBeers.length = 1
-  randomBeers.forEach((info) => {
+  // let randomBeers = getImgUrl()
+  // console.log(randomBeers)
+  console.log(listBeers)
+  listBeers.length = 4
+  listBeers.forEach((info) => {
     createRandomList.innerHTML += `
     <div class="beer-card">
-      <img src="${info.labels.medium}" height = "100px">
+      <img class="default" src="${info.labels.medium}" height = "100px">
       <p>${info.name}</p>
       <p>Style: ${info.style.shortName}</p>
       <p>ABV: ${info.abv}%</p>
     </div>`
-    console.log(info.labels.icon)
+    // console.log(getImgUrl(listBeers))
   })
   
   document.querySelector("#append-beer").append(createRandomList)
@@ -137,35 +148,38 @@ function clearList() {
    }
  }
 
+ const getImgUrl = function () {
+  // let beerImages = hope
+  for (let i = 0; i < listBeers.length; i++) {
+    if (defaultImage === null) {
+      let noPic = "test"
+      return noPic
+    } else {
+      return defaultImage
+    }
+}
+}
+
+getImgUrl()
 const randomize = function (beers) {
 
-  const randomBeers = beers
+  const scrambleBeers = beers
   let currentIndex = beers.length
   let temporaryValue = null
   let randomIndex = null
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
-    temporaryValue = randomBeers[currentIndex]
-    randomBeers[currentIndex] = randomBeers[randomIndex]
-    randomBeers[randomIndex] = temporaryValue
+    temporaryValue = scrambleBeers[currentIndex]
+    scrambleBeers[currentIndex] = scrambleBeers[randomIndex]
+    scrambleBeers[randomIndex] = temporaryValue
   }
   return beers
 }
 
 // Sort through the objects looking for the style array. If it's there 
 // return the URL. If not, kick out a default URL
-const getImgUrl = function (beers) {
-  let beerImages = beers
-  for (let i = 0; i < beerImages.length; i++) {
-    if (beerImages[i].labels === null) {
-      let noPic = "test"
-      return noPic
-    } else {
-      return beerImages
-    }
-}
-}
+
 
 
 //testing the image library. Will probably be removed before MVP
