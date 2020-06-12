@@ -8,20 +8,10 @@ const getOption = async () => {
     styleList = (res.data.data)
     // console.log(styleList)
     // console.log(res)
-    const defaultImg = document.querySelector(".default")
-    console.log(defaultImg)
-    // BAD ATTEMPT AT SETTING DEFAULT IMAGE
-    // const getLabel = (res.data.data)
-    // getLabel.forEach((info) => {
-    //   if (info.labels === null) {
-    //     return placeHolder
-    //   } else { 
-    //     return info
-    //   }
-    // })
 
-    // Logging the beers to make sure we have access
-    const selectStyle = document.querySelector('#select-style') 
+    const selectStyle = document.querySelector('#select-style')    // Logging the beers to make sure we have access
+
+
     // This block of code populates the Style Drop Down with "glass" value from API
     // I used glass value because it was much closer to an accurate style description.
     for (let i = 0; i < styleList.length; i++) {
@@ -30,8 +20,9 @@ const getOption = async () => {
       option.value = `${beerInfo.category.id}`
       option.text = `${beerInfo.shortName}`
       selectStyle.append(option)
-
+      // console.log(styleList)
     }
+    console.log(beerInfo.shortName)
   } catch (error) {
     console.log(`THERE WAS AN ERROR: ${error}`)
   }
@@ -40,17 +31,12 @@ const getOption = async () => {
 getOption()
 
 // Hard coding the ABV options into the 2nd drop down menu
-// CLEAN THIS UP IN POST MVP
 const selectABV = document.querySelector("#select-abv")
-// selectABV.options[selectABV.options.length] = new Option("Less than 4%", 3.9)
 selectABV.options[selectABV.options.length] = new Option("below 6", 5.9)
 selectABV.options[selectABV.options.length] = new Option("More than 6", 6)
-// selectABV.options[selectABV.options.length] = new Option("More than 10%", 4)
 
-// Now I have to take the beer style selected in
+// take the beer style selected in
 //the drop down and append to the DOM
-
-
 const showBeer = document.querySelector("#show-beer")
 showBeer.addEventListener('click', customBeers)
 
@@ -58,7 +44,7 @@ async function customBeers(e) {
   const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
   const res = await axios.get(url)
   styleList = (res.data.data)
-  
+
   // Filters out any beers that don't have style.
   // then returns beers based on the users choices. 
   e.preventDefault()
@@ -68,7 +54,7 @@ async function customBeers(e) {
   const selectABV = parseInt(getABV.value, 10)
   const selectValue = parseInt(getBeer.value, 10) // turns string `value` into a base10 integer
   // console.log(selectValue, selectABV)
-  
+
   let filteredList = styleList.filter(j => {
     return "style" in j
   }).filter(i => {
@@ -87,11 +73,12 @@ async function customBeers(e) {
   const createList = document.createElement('beer-list')
   clearList()
   // filteredList.length = 4 // Wont return more than 4 beers
-  let randomBeers = randomize(filteredList)
+  randomize(filteredList)
   filteredList.length = 4
   filteredList.forEach((info) => {
     createList.innerHTML += `
     <div class="beer-card">
+    <img src="${getImgUrl(info)}" height = "100px">
       <p>${info.name}</p>
       <p>Style: ${info.style.shortName}</p>
       <p>ABV: ${info.abv}%</p>
@@ -101,17 +88,19 @@ async function customBeers(e) {
 }
 
 
-
 // same as custom beers, but randomly generates the selection
 const showRandomBeer = document.querySelector("#random-beer")
-showRandomBeer.addEventListener('click', roulette)
+showRandomBeer.addEventListener('click', beerRoulette)
 
 
-async function roulette(e) {
+async function beerRoulette(e) {
   const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
   const res = await axios.get(url)
   styleList = (res.data.data)
 
+
+
+  // console.log(imageURL)
   e.preventDefault()
   // const removeBeer = document.querySelector('#append-beer')
   // filters out any objects without style array
@@ -122,63 +111,66 @@ async function roulette(e) {
   const createRandomList = document.createElement('beer-list')
   clearList()
   let listBeers = randomize(filteredList)
-  // let randomBeers = getImgUrl()
-  // console.log(randomBeers)
-  console.log(listBeers)
-  listBeers.length = 4
+  
+
+
+
+  // // New Test ================================
+  // for (let i = 0; i < randomBeers.length; i++) {
+  // imageURL = (res.data.data[i].labels === null ? "https://lh3.googleusercontent.com/bwwXynqbucYks7jO03GwEZnAg09dnZ9exhf0R2ZakWw_j2IHnK0NloicgoQaHx-XG17pbx4u0Fzz6RKJMWcdKDx41RbztnI=s750" : res.data.data.labels.icon)
+  // }
+  // // New Test ================================
+
+
+
+  randomBeers.length = 4 
   listBeers.forEach((info) => {
     createRandomList.innerHTML += `
     <div class="beer-card">
-      <img class="default" src="${info.labels.medium}" height = "100px">
+      <img src="${getImgUrl(info)}" height = "100px">
       <p>${info.name}</p>
       <p>Style: ${info.style.shortName}</p>
       <p>ABV: ${info.abv}%</p>
     </div>`
-    // console.log(getImgUrl(listBeers))
+    // console.log(info.labels.icon)
   })
-  
+
   document.querySelector("#append-beer").append(createRandomList)
 
 }
-  //Removes the beer list when you click one of the buttons
+//Removes the beer list when you click one of the buttons
 function clearList() {
   const oldBeerList = document.querySelector(`#append-beer`)
-   while (oldBeerList.lastChild) {
-     oldBeerList.removeChild(oldBeerList.lastChild)
-   }
- }
-
- const getImgUrl = function () {
-  // let beerImages = hope
-  for (let i = 0; i < listBeers.length; i++) {
-    if (defaultImage === null) {
-      let noPic = "test"
-      return noPic
-    } else {
-      return defaultImage
-    }
-}
+  while (oldBeerList.lastChild) {
+    oldBeerList.removeChild(oldBeerList.lastChild)
+  }
 }
 
-getImgUrl()
 const randomize = function (beers) {
 
-  const scrambleBeers = beers
+  const randomBeers = beers
   let currentIndex = beers.length
   let temporaryValue = null
   let randomIndex = null
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
-    temporaryValue = scrambleBeers[currentIndex]
-    scrambleBeers[currentIndex] = scrambleBeers[randomIndex]
-    scrambleBeers[randomIndex] = temporaryValue
+    temporaryValue = randomBeers[currentIndex]
+    randomBeers[currentIndex] = randomBeers[randomIndex]
+    randomBeers[randomIndex] = temporaryValue
   }
   return beers
 }
 
 // Sort through the objects looking for the style array. If it's there 
 // return the URL. If not, kick out a default URL
+const getImgUrl = function (beer) {
+  if (beer.labels == null) {
+    return "https://lh3.googleusercontent.com/bwwXynqbucYks7jO03GwEZnAg09dnZ9exhf0R2ZakWw_j2IHnK0NloicgoQaHx-XG17pbx4u0Fzz6RKJMWcdKDx41RbztnI=s750"
+  }
+  return beer.labels.medium
+}
+
 
 
 
