@@ -35,7 +35,7 @@ getOption()
 const selectABV = document.querySelector("#select-abv")
 // selectABV.options[selectABV.options.length] = new Option("Less than 4%", 3.9)
 selectABV.options[selectABV.options.length] = new Option("below 6", 5.9)
-selectABV.options[selectABV.options.length] = new Option("More than 6", 10)
+selectABV.options[selectABV.options.length] = new Option("More than 6", 6)
 // selectABV.options[selectABV.options.length] = new Option("More than 10%", 4)
 
 // Now I have to take the beer style selected in
@@ -64,7 +64,13 @@ async function customBeers(e) {
   }).filter(i => {
     return i.style.category.id === selectValue
   }).filter(k => {
-    return i.abv >= selectABV || i.abv < selectAbv // Maybe this will work? 
+    if (selectABV < 6) {
+      return parseInt(k.abv, 10) < 5.9
+    } else if (selectABV > 5.9) {
+      return parseInt(k.abv, 10) > 6
+    } else {
+      console.log("oops")
+    }
   })
 
   // appends the beer information to the DOM
