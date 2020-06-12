@@ -6,12 +6,13 @@ body{
 }
 
 button{
-font-size: 30px;
-background-color: rgb(67, 97, 238);
+  font-size: 30px;
+  background-color: rgb(67, 97, 238);
 }
 
-div{
-  padding-bottom: 20px;
+button{
+  font-size: 30px;
+  background-color: rgb(67, 97, 238);
 }
 
 header{
@@ -20,24 +21,15 @@ header{
   border: 3px solid black;
   background-color: rgb(114, 9, 183);
 }
-
-.options{
-  max-height: 300px;
-}
-
-.drop-downs{
-  
- display: flex;
- flex-direction: row;
- justify-content: space-around;
-}
-
-.buttons{
-  
-  padding: 10px;
+#append-beer{
+  border: 1px solid black;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: auto;
+  justify-content: center;
+  padding-bottom: 0;
+}
+.beer-card{
+  border: 1px solid black;
+  margin: 5px;
+  min-width: 200px;
 
 }

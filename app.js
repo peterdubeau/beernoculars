@@ -20,7 +20,7 @@ const getOption = async () => {
       option.value = `${beerInfo.category.id}`
       option.text = `${beerInfo.shortName}`
       selectStyle.append(option)
-      // console.log(beerInfo)
+      // console.log(styleList)
     }
     console.log(beerInfo.shortName)
   } catch (error) {
@@ -59,6 +59,7 @@ async function customBeers(e) {
   const selectABV = parseInt(getABV.value, 10)
   const selectValue = parseInt(getBeer.value, 10) // turns string `value` into a base10 integer
   // console.log(selectValue, selectABV)
+  
   let filteredList = styleList.filter(j => {
     return "style" in j
   }).filter(i => {
@@ -76,7 +77,9 @@ async function customBeers(e) {
   // appends the beer information to the DOM
   const createList = document.createElement('beer-list')
   clearList()
-  // randomBeers.length = 4 // Wont return more than 4 beers
+  // filteredList.length = 4 // Wont return more than 4 beers
+  let randomBeers = randomize(filteredList)
+  filteredList.length = 4
   filteredList.forEach((info) => {
     createList.innerHTML += `
     <div class="beer-card">
@@ -86,22 +89,14 @@ async function customBeers(e) {
     </div>`
   })
   document.querySelector("#append-beer").append(createList)
-
-  //Removes the beer list when you click "show brews"
-
-
 }
 
-function clearList() {
-  const oldBeerList = document.querySelector(`#append-beer`)
-   while (oldBeerList.lastChild) {
-     oldBeerList.removeChild(oldBeerList.lastChild)
-   }
- }
 
 // same as custom beers, but randomly generates the selection
 const showRandomBeer = document.querySelector("#random-beer")
 showRandomBeer.addEventListener('click', randomBeers)
+
+
 async function randomBeers(e) {
   const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
   const res = await axios.get(url)
@@ -109,28 +104,38 @@ async function randomBeers(e) {
 
   e.preventDefault()
   // const removeBeer = document.querySelector('#append-beer')
-
+  // filters out any objects without style array
   let filteredList = styleList.filter(j => {
     return "style" in j
   })
 
   const createRandomList = document.createElement('beer-list')
   clearList()
-  let randomBeers = randomize(filteredList)
-  randomBeers.length = 4
+  let listBeers = randomize(filteredList)
+   let randomBeers = getImgUrl(listBeers)
+  
+  randomBeers.length = 1
   randomBeers.forEach((info) => {
     createRandomList.innerHTML += `
     <div class="beer-card">
-      <p>Style: ${info.style.shortName}</p>
+      <img src="${info.labels.medium}" height = "100px">
       <p>${info.name}</p>
+      <p>Style: ${info.style.shortName}</p>
       <p>ABV: ${info.abv}%</p>
     </div>`
+    console.log(info.labels.icon)
   })
   
   document.querySelector("#append-beer").append(createRandomList)
 
 }
-
+  //Removes the beer list when you click one of the buttons
+function clearList() {
+  const oldBeerList = document.querySelector(`#append-beer`)
+   while (oldBeerList.lastChild) {
+     oldBeerList.removeChild(oldBeerList.lastChild)
+   }
+ }
 
 const randomize = function (beers) {
 
@@ -148,30 +153,43 @@ const randomize = function (beers) {
   return beers
 }
 
-//testing the image library. Will probably be removed before MVP
-async function getImage(image) {
-  try {
-
-    const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
-    const res = await axios.get(url)
-    const imageList = (res.data.data)
-    //How to traverse the API objects down to their images. 
-    let beerImg = []
-    let noImg = []
-    for (let i = 0; i < imageList.length; i++) {
-      if (imageList[i].labels == null) {
-        noImg.push("USELESS")
-      } else {
-        beerImg.push(imageList[i].labels.icon)
-      }
-    } console.log(beerImg)
-  } catch (error) {
-    console.log(`THERE WAS AN ERROR: ${error}`)
-  }
+// Sort through the objects looking for the style array. If it's there 
+// return the URL. If not, kick out a default URL
+const getImgUrl = function (beers) {
+  let beerImages = beers
+  for (let i = 0; i < beerImages.length; i++) {
+    if (beerImages[i].labels === null) {
+      let noPic = "test"
+      return noPic
+    } else {
+      return beerImages
+    }
+}
 }
 
-// getImage()
 
+//testing the image library. Will probably be removed before MVP
+// async function getImage(image) {
+//   try {
+
+//     const url = "http://api.brewerydb.com/v2/beers/?key=f5be82be5b9ee3151bbe291b9f9596fa"
+//     const res = await axios.get(url)
+//     const imageList = (res.data.data)
+//     //How to traverse the API objects down to their images. 
+//     for (let i = 0; i < imageList.length; i++) {
+//       if (imageList[i].labels == null) {
+//         return false
+//       } else {
+//         return imageList[i].labels.medium
+//       }
+//     } console.log(false)
+//   } catch (error) {
+//     console.log(`THERE WAS AN ERROR: ${error}`)
+//   }
+
+// }
+
+// getImage()
 
 // ATTEMPT TO BUILD RANDOM LIST -- WORKS BUT NOT REALLY
 // let filteredList = styleList.filter(j => {
