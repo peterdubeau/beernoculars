@@ -24,7 +24,7 @@ const getOption = async () => {
     }
     console.log(beerInfo.shortName)
   } catch (error) {
-    console.log(`THERE WAS AN ERROR: ${error}`)
+    // console.log(`THERE WAS AN ERROR: ${error}`)
   }
 
 }
@@ -123,7 +123,7 @@ async function beerRoulette(e) {
 
 
 
-  randomBeers.length = 4 
+  listBeers.length = 4 
   listBeers.forEach((info) => {
     createRandomList.innerHTML += `
     <div class="beer-card">

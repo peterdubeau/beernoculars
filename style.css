@@ -4,7 +4,16 @@ body{
   text-align: center;
   /* background-color: red */
 }
-
+beer-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-around;
+  padding-bottom: 0;
+  padding: 30px;
+  border: 1px solid black;
+}
 button{
   font-size: 30px;
   background-color: rgb(67, 97, 238);
@@ -22,14 +31,13 @@ header{
   background-color: rgb(114, 9, 183);
 }
 #append-beer{
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 0;
+
 }
 .beer-card{
+  
   border: 1px solid black;
   margin: 5px;
   min-width: 200px;
+  max-width: 400px;
 
 }
