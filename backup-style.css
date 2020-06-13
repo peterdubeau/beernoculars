@@ -47,7 +47,7 @@ p{
  justify-content: space-around;
 }
 
-#show-beer.buttons{
+.buttons{
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;

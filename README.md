@@ -4,7 +4,7 @@
 
 ## Project Description
 
-An application that gives the user a list of beers they may like based on a few search criteria (style, ABV, ect.) The page will then display up to 4 beers that match the users request. The results will include: An image of the beer or its logo, a brief description and some additional information as selected in the dropdown menus. 
+An application that gives the user a list of beers they may like based on a few search criteria (style, ABV, ect.) The page will then display up to 4 beers that match the users request. The results will include: An image of the beer or its logo, ABV some additional information as selected in the dropdown menus. 
 
 ## API and Data Sample
 

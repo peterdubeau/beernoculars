@@ -11,7 +11,6 @@ const getOption = async () => {
 
     const selectStyle = document.querySelector('#select-style')    // Logging the beers to make sure we have access
 
-
     // This block of code populates the Style Drop Down with "glass" value from API
     // I used glass value because it was much closer to an accurate style description.
     for (let i = 0; i < styleList.length; i++) {
@@ -20,7 +19,7 @@ const getOption = async () => {
       option.value = `${beerInfo.category.id}`
       option.text = `${beerInfo.shortName}`
       selectStyle.append(option)
-      // console.log(styleList)
+      console.log(styleList)
     }
     console.log(beerInfo.shortName)
   } catch (error) {
@@ -78,10 +77,11 @@ async function customBeers(e) {
   filteredList.forEach((info) => {
     createList.innerHTML += `
     <div class="beer-card">
-    <img src="${getImgUrl(info)}" height = "100px">
-      <p>${info.name}</p>
+    <img class="label" src="${getImgUrl(info)}" height = "200px">
+      <p class="beer-name"><a target="blank" href="https://www.google.com/search?q=${info.name}">${info.name}<a/></p>
       <p>Style: ${info.style.shortName}</p>
       <p>ABV: ${info.abv}%</p>
+      <p>${getDescription(info)}</p>
     </div>`
   })
   document.querySelector("#append-beer").append(createList)
@@ -127,10 +127,11 @@ async function beerRoulette(e) {
   listBeers.forEach((info) => {
     createRandomList.innerHTML += `
     <div class="beer-card">
-      <img src="${getImgUrl(info)}" height = "100px">
-      <p>${info.name}</p>
+      <img class="label" src="${getImgUrl(info)}" height = "200px">
+      <p class="beer-name"><a target="blank" href="https://www.google.com/search?q=${info.name}">${info.name}<a/></p>
       <p>Style: ${info.style.shortName}</p>
-      <p>ABV: ${info.abv}%</p>
+      <p>ABV:${info.abv}%</p>
+      <p class="description">${getDescription(info)}</p>
     </div>`
     // console.log(info.labels.icon)
   })
@@ -171,6 +172,12 @@ const getImgUrl = function (beer) {
   return beer.labels.medium
 }
 
+const getDescription = function (beer) {
+  if (beer.description == null) {
+    return "Unfortunately we don't have much info on this beer. But if you're interested in it, click on it's name for a quick Google search."
+  }
+    return beer.description
+}
 
 
 
