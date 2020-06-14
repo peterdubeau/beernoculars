@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(135, 105, 204);
+  background-image: url("https://img.freepik.com/free-vector/space-with-stars-universe-space-infinity-background_78474-99.jpg?size=626&ext=jpg");
   text-align: center;
 }
 
@@ -8,9 +8,8 @@ beer-list{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: space-between;
-  padding-bottom: 0;
-  padding: 100px;
+  align-items: space-around;
+  padding: 0 10px;
   border: 1px solid black;
 }
 
@@ -35,18 +34,41 @@ select{
   font-size: 20px;
 }
 
+.append-beer{
+  color: rgb(176, 174, 177);
+}
+
 .beer-card{
+  background-color: rgb(176, 174, 177);
+  color: black;
+  flex: 0 70%;
   align-content: center;
   border: 1px solid black;
-  margin: 5px;
+  margin: 30px;
   min-width: 400px;
   max-width: 400px;
   border-radius: 30px;
+  font-size: 16px;
 }
-
 
 .beer-name{
   font-size: 32px;
+}
+
+.beer-spin{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons{
+  margin-bottom: 20px;
+}
+
+.counter{
+  font-family: 'Odibee Sans', cursive;
+  color: grey;
+  font-size: 30px;
 }
 
 .description{
@@ -54,8 +76,10 @@ select{
   padding: 5px;
 }
 
-.buttons{
-  margin-bottom: 20px;
+.dont-like{
+  color: rgb(176, 174, 177);
+  font-size: 30px;
+  margin-bottom: 0;
 }
 
 .drop-downs{
@@ -66,6 +90,19 @@ select{
 
 }
 
+.label{
+  border: 2px solid black;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+
+viewer-count{
+  background-color: rgb(114, 9, 183);
+  border: 3px solid red;
+  color: grey;
+  padding: 3px;
+}
+
 #show-beer{
   margin-bottom: 20px;
 
@@ -74,14 +111,9 @@ select{
 #title{
   font-size: 78px;
   margin-top: 5px;
+  margin-bottom: 0px;
 }
 
-.label{
-  border: 2px solid black;
-  border-radius: 50px;
-  margin-top: 10px
-  
-}
 
 @media (max-width: 1000px){
 
@@ -92,6 +124,15 @@ beer-list{
 body{
   background-color: black;
   color: grey;
+}
+
+div{
+  font-size: 100%;
+}
+
+beer-list{
+  display: flex;
+  align-items: space-around;
 }
 
 header{
@@ -107,14 +148,30 @@ header{
   font-size: 20px;
 }
 
+.dont-like{
+  font-size: 16px;
+}
+
 .drop-downs{
   font-size: 10px;
   display: flex;
   flex-wrap: wrap;
 }
 
+#beer-slide{
+  width: 100%;
+}
+
+#beer-1{
+  height: 50px;
+}
+
+#beer-2{
+  height: 50px;
+}
+
 #title{
-  font-size: 40px;
+  font-size: 30px;
 }
 
 }

@@ -6,11 +6,20 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
   <title>Welcome to Beernoculars!</title>
 </head>
 <body>
   <header>
-    <h2>WELCOME TO</h2> <h1 id="title">BEERNOCULARS</h1>
+    <div class="beer-spin">
+      <img id="beer-1" src="https://web.archive.org/web/20091027121127im_/http://geocities.com/dars_25/beer_can.gif">
+         <div>
+          <h3><small>WELCOME TO</h3> 
+          <h2 id="title">BEERNOCULARS</h2>
+        </div> 
+          <img id="beer-2" src="https://web.archive.org/web/20091027121127im_/http://geocities.com/dars_25/beer_can.gif">
+    </div>
+    <img id="beer-slide" src="https://web.archive.org/web/20091027072637if_/http://geocities.com/ou_sortir2001/beer.gif">
     <h3>We'll help you find new beers to try! Choose a style of beer and how strong you want it.</h3>
       <div class="options">
       <div class="drop-downs">
@@ -25,11 +34,9 @@
     </div>
   </header>
   <div class="display-beer">
-    <div id="append-beer">
+    <div class="dont-like" id="append-beer">
       <h1>Let's find you some beers!</h1>
-      <p></p>
-      
-  </div>
-  
+  </div>     
+  <div class="counter">Visitor Count: </div>       
 </body>
 </html>

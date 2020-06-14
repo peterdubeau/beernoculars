@@ -19,7 +19,7 @@ const getOption = async () => {
       option.value = `${beerInfo.category.id}`
       option.text = `${beerInfo.shortName}`
       selectStyle.append(option)
-      console.log(styleList)
+      // console.log(styleList)
     }
     console.log(beerInfo.shortName)
   } catch (error) {
@@ -133,7 +133,7 @@ function clearList() {
   const oldBeerList = document.querySelector(`#append-beer`)
   while (oldBeerList.lastChild) {
     oldBeerList.removeChild(oldBeerList.lastChild)
-  } oldBeerList.innerHTML = `<h2 class= "dont-like"> Don't see anything you like?</h2> <h3>Hit "Show me some brews!" again for some more examples, or try "Beer Roulette" for a random selection! </h3>`
+  } oldBeerList.innerHTML = `<h2 class= "dont-like"> Don't see anything you like?</h2> <h3 class ="dont-like">Hit "Show me some brews!" again for some more examples, or try "Beer Roulette" for a random selection! </h3>`
 } 
 
 const randomize = function (beers) {
@@ -168,6 +168,13 @@ const getDescription = function (beer) {
     return beer.description
 }
 
+const d = new Date();
+const n = d.getSeconds();
+const counter = document.querySelector(".counter")
+// console.log(counter)
+const viewCount = document.createElement("viewer-count")
+counter.append(viewCount)
+viewCount.append(n + 223)
 
 
 //testing the image library. Will probably be removed before MVP
