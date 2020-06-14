@@ -92,9 +92,9 @@ An application that gives the user a list of beers they may like based on a few 
 |---|---| ---|
 |June 8| Project Prompt, WireFrame, Priority Matrix | Complete
 |June 9| Core Application Structure (HTML, JavaScript, basic CSS & initial API setup)| Complete
-|June 10| JavaScript and API  | Incomplete
-|June 11| Initial Clickable Model  | Incomplete
-|June 12| MVP & additional CSS styling | Incomplete
+|June 10| JavaScript and API  | Complete
+|June 11| Initial Clickable Model  | Complete
+|June 12| MVP & additional CSS styling | Complete
 |June 15| Present | Incomplete
 
 ## Priority Matrix
@@ -108,20 +108,37 @@ An application that gives the user a list of beers they may like based on a few 
 | --- | :---: |  :---: | :---: | :---: |
 | Proposal | H | 2hrs | 2hrs | 2hrs | 2hrs |
 | Building base HTML & CSS | H | 4hrs | 3hrs | - |
-| Adding Drop down menus | M | 4.5hrs| 4hrs | - |
-| Working with API | H | 4.5hrs| | 5hrs | - |
-| Rendering API to DOM | H | 5hrs| | 6hrs | - |
-| Random Button | L | 3hrs | 3hrs | 3hrs |
+| Adding Drop down menus | M | 5hrs| 4hrs | - |
+| Working with API | H | 5hrs| | 5hrs | - |
+| Rendering API to DOM | H | 6hrs| | 6hrs | - |
+| Random Button | L | 3hrs | 2hrs | 3hrs |
 | Fine Tuning CSS | M | 6hrs | - | - |
 | Media Queries | L | 4hrs | - | -|
 | Total | H | 35hrs| 2hr | 2hrs |
 
 ## Code Snippet
 
+I was having issues getting beers without images to display a default image of my choice. In theory I knew how to get it working, but execution was a bit more tricky. I got about 90% of the way there with this bit of code:
+
 ```
-Coming soon to a proposal near you
+const getImgUrl = function (beer) {
+  if (beer.labels == null) {
+    return "https://lh3.googleusercontent.com/bwwXynqbucYks7jO03GwEZnAg09dnZ9exhf0R2ZakWw_j2IHnK0NloicgoQaHx-XG17pbx4u0Fzz6RKJMWcdKDx41RbztnI=s750"
+  }
+  return beer.labels.medium
 }
 ```
+
+Then i discovered i could use a function WITHIN my string concatination to make the default image display:
+
+```
+listBeers.forEach((info) => {
+    createRandomList.innerHTML += `
+    <div class="beer-card">
+      <img class="label" src="${getImgUrl(info)}" height = "200px">
+```
+
+After i got this function working I was able to re-purpose and use it several times throughout the project. 
 
 ## Change Log
 - Minor changes due to restricted data in API (6/11/20)
