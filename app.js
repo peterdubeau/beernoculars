@@ -31,8 +31,8 @@ getOption()
 
 // Hard coding the ABV options into the 2nd drop down menu
 const selectABV = document.querySelector("#select-abv")
-selectABV.options[selectABV.options.length] = new Option("below 6", 5.9)
-selectABV.options[selectABV.options.length] = new Option("More than 6", 6)
+selectABV.options[selectABV.options.length] = new Option("Less than 6% ABV", 5.9)
+selectABV.options[selectABV.options.length] = new Option("More than 6% ABV", 6)
 
 // take the beer style selected in
 //the drop down and append to the DOM
@@ -111,17 +111,6 @@ async function beerRoulette(e) {
   const createRandomList = document.createElement('beer-list')
   clearList()
   let listBeers = randomize(filteredList)
-  
-
-
-
-  // // New Test ================================
-  // for (let i = 0; i < randomBeers.length; i++) {
-  // imageURL = (res.data.data[i].labels === null ? "https://lh3.googleusercontent.com/bwwXynqbucYks7jO03GwEZnAg09dnZ9exhf0R2ZakWw_j2IHnK0NloicgoQaHx-XG17pbx4u0Fzz6RKJMWcdKDx41RbztnI=s750" : res.data.data.labels.icon)
-  // }
-  // // New Test ================================
-
-
 
   listBeers.length = 4 
   listBeers.forEach((info) => {
@@ -144,8 +133,8 @@ function clearList() {
   const oldBeerList = document.querySelector(`#append-beer`)
   while (oldBeerList.lastChild) {
     oldBeerList.removeChild(oldBeerList.lastChild)
-  }
-}
+  } oldBeerList.innerHTML = `<h2 class= "dont-like"> Don't see anything you like?</h2> <h3>Hit "Show me some brews!" again for some more examples, or try "Beer Roulette" for a random selection! </h3>`
+} 
 
 const randomize = function (beers) {
 
