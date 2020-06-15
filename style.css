@@ -17,13 +17,26 @@ button{
   font-size: 30px;
   background-color: rgb(67, 97, 238);
 }
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
+guestbook{
+  background-color: lightgray;
+  border: 2px solid black;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 header{
   color: lightblue;
   margin: auto;
   border: 3px solid black;
-  background-color: rgb(114, 9, 183);
+  background-color: rgba(114, 9, 183,.8);
 }
 
 select{
@@ -69,6 +82,7 @@ select{
   font-family: 'Odibee Sans', cursive;
   color: grey;
   font-size: 30px;
+  margin-bottom: 30px;
 }
 
 .description{
@@ -101,6 +115,10 @@ viewer-count{
   border: 3px solid red;
   color: grey;
   padding: 3px;
+}
+
+#send{
+  width: 30px;
 }
 
 #show-beer{
